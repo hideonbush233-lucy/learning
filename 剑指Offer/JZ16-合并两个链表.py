@@ -27,3 +27,20 @@ class Solution:
         elif pHead2 == None:
             cur.next = pHead1
         return head
+    
+# 递归法，弄清楚函数功能及截止条件即可
+class Solution:
+    # 返回合并后列表
+    def Merge(self, pHead1, pHead2):
+        # write code here
+        if pHead1 == None:
+            return pHead2
+        elif pHead2 == None:
+            return pHead1
+        if pHead1.val < pHead2.val:
+            head = pHead1
+            head.next = self.Merge(pHead1.next, pHead2)
+        else:
+            head = pHead2
+            head.next = self.Merge(pHead1, pHead2.next)
+        return head

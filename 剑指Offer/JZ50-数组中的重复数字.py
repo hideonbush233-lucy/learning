@@ -29,4 +29,16 @@ def duplicate(self , numbers ):
             return numbers[i]
     return -1
 
-# 
+# 新建一个列表 利用in进行判断
+class Solution:
+    def duplicate(self , numbers ):
+        # write code here
+        if len(numbers) == 0:
+            return -1
+        res = []
+        for item in numbers:
+            if item in res:
+                return item
+            else:
+                res.append(item)
+        return -1

@@ -1,6 +1,6 @@
 # 写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。
 
-# 该方法采用c++编写没有问题，Python不知道为什么不行
+# 该方法采用c++编写没有问题，Python不知道为什么不行 （python没有无符号右移操作，所以需要越界检查一波！！！！！）
 # 三位加法：
 
 #     101 ^ 111 = 0010 （没有处理进位的加法）
@@ -31,3 +31,11 @@
 #         return res;
 #     }
 # };
+
+# python方法
+class Solution:
+    def Add(self, num1, num2):
+        # write code here
+        while(num2): 
+           num1, num2 = (num1^num2) & 0xFFFFFFFF,((num1&num2)<<1) & 0xFFFFFFFF
+        return num1 if num1<=0x7FFFFFFF else ~(num1^0xFFFFFFFF)

@@ -27,3 +27,6 @@ class Solution:
             cur.next = ListNode(res[i])
             cur = cur.next
         return head
+
+    
+    # 如果发现重复元素为相邻元素这一特点 就可以改进一下

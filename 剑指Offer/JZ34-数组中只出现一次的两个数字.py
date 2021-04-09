@@ -9,5 +9,18 @@ class Solution:
             if array.count(item) == 1:
                 res.append(item)
         return sorted(res)
+    
+    
+    
+    class Solution:
+    def FindNumsAppearOnce(self , array ):
+        # write code here
+        res = []
+        for item  in array:
+            if item in res:
+                res.remove(item)
+            else:
+                res.append(item)
+        return sorted(res)
       
   

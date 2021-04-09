@@ -28,5 +28,28 @@ class Solution:
             cur = cur.next
         return head
 
-    
-    # 如果发现重复元素为相邻元素这一特点 就可以改进一下
+ 
+# 如果发现重复元素为相邻元素这一特点 就可以改进一下
+class Solution:
+    def deleteDuplication(self, pHead):
+        # write code here
+        if not pHead:
+            return None
+        p = ListNode(-1)
+        p.next = pHead
+        pre = p
+        cur = pHead
+        while cur and cur.next:
+            if cur.val != cur.next.val:
+                cur = cur.next
+                pre = pre.next
+            else:
+                right = cur.next
+                while right.val == cur.val:
+                    if right.next == None:
+                        pre.next = None
+                        return p.next
+                    right = right.next
+                pre.next = right
+                cur = right
+        return p.next

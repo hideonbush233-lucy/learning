@@ -22,3 +22,25 @@ class Solution:
         l.reverse()
         news = ' '.join(l)
         return news
+
+# 自己编写split()函数功能
+class Solution:
+    def ReverseSentence(self, s):
+        # write code here
+        if not s:
+            return s
+        l = []
+        tmp = ''
+        for item in s:
+            if item != ' ':
+                tmp += item
+            else:
+                l.append(tmp)
+                tmp = ''
+        l.append(tmp)
+#         l = s.split()
+        if len(l) == 0:
+            return s
+        l = l[::-1]
+        news = ' '.join(l)
+        return news

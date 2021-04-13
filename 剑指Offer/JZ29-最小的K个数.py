@@ -12,3 +12,19 @@ class Solution:
         
         tinput = sorted(tinput)
         return tinput[:k]
+
+# 逐个添加最小值
+class Solution:
+    def GetLeastNumbers_Solution(self, tinput, k):
+        # write code here
+        if len(tinput) == 0:
+            return []
+        if k > len(tinput):
+            return []
+        res = []
+        for i in range(k):
+            tmp = min(tinput)
+            tinput.remove(tmp)
+            res.append(tmp)
+        return res
+    

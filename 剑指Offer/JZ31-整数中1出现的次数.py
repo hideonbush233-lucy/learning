@@ -21,3 +21,18 @@ def numcount(num):
             count += 1
         num = num//10
     return count
+
+
+class Solution:
+    def NumberOf1Between1AndN_Solution(self, n):
+        # write code here
+        if n < 1:
+            return 0
+        res = 0
+        m = 1
+        while m<=n:
+            a = n//m
+            b = n%m
+            res += (a+8)//10*m+(a%10==1)*(b+1)
+            m *= 10
+        return res

@@ -12,5 +12,27 @@ class Solution:
             for j in range(2,i):
                 dp[i] = max(dp[i],max(j*(i-j),j*dp[i-j]))
         return dp[number]
-      
-# https://mp.weixin.qq.com/s?__biz=MzI3NzIwMjk4OA==&mid=2247484941&idx=1&sn=d268686f5408a8e431bd2e4a79dd7fc8&chksm=eb68974edc1f1e5823b9bd5485e32a91bcaaa6e3fb146bd8526d91bf6144f2da332ee2cd8b42&mpshare=1&scene=23&srcid=0416eoy626RzI6JNM9QQevId&sharer_sharetime=1618561576753&sharer_shareid=a5423d6d3794defc58f0d989fcdd8682#rd
+
+    
+# 记忆化递归
+# -*- coding:utf-8 -*-
+class Solution:
+    def func(self, num, dp):
+        if num <= 4:
+            return num
+        res = 0
+        if dp[num] != 0:
+            return dp[num]
+        for i in range(2,num):
+            res = max(res,i*self.func(num-i,dp))
+        dp[num] = res
+        return res
+    
+    def cutRope(self, number):
+        # write code here
+        if number == 2:
+            return 1
+        if number == 3:
+            return 2
+        dp = [0] * (number+1)
+        return self.func(number,dp)

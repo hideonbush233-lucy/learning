@@ -15,3 +15,47 @@ class Solution:
                 if data[i] > data[j]:
                     res += 1
         return res%1000000007
+
+   
+# 再推导推导
+class Solution:
+    def InversePairs(self, data):
+        # write code here
+        def merge(data, start, mid, end, temp):
+            cnt = 0
+            i = start
+            j = mid + 1
+            k = start
+            while i <= mid and j <= end:  # data[start...1...mid]  data[mid+1...j...end]
+                if data[j] < data[i]:
+                    temp[k] = data[j]
+                    cnt += j - k
+                    j += 1
+                    k += 1
+                else:
+                    temp[k] = data[i]
+                    i += 1
+                    k += 1
+            while i <= mid:
+                temp[k] = data[i]
+                i += 1
+                k += 1
+            while j <= end:
+                temp[k] = data[j]
+                j += 1
+                k += 1
+            data[start:end+1] = temp[start:end+1]
+            return cnt
+         
+        def divide(data, start, end, temp):
+            cnt = 0
+            if start < end:
+                mid = (start + end) // 2
+                cnt += divide(data, start, mid, temp)
+                cnt += divide(data, mid+1, end, temp)
+                cnt += merge(data, start, mid, end, temp)
+            return cnt
+         
+        temp = data[:]
+        count = divide(data, 0, len(data)-1, temp)
+        return count % 1000000007

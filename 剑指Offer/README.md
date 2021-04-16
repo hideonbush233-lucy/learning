@@ -1,6 +1,8 @@
 # 剑指offer刷题记录
 用于记录刷题思路，便于总结反思
-[答案参考](https://www.algomooc.com/jianzhioffer)
+
+## [答案参考](https://www.algomooc.com/jianzhioffer)
+
 ## 重点题
 
 [JZ36-两个链表第一个公共结点](./JZ36-两个链表中的第一个公共结点.py)

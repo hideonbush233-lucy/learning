@@ -1,6 +1,6 @@
 # 剑指offer刷题记录
 用于记录刷题思路，便于总结反思
-
+[答案参考](https://www.algomooc.com/jianzhioffer)
 ## 重点题
 
 [JZ36-两个链表第一个公共结点](./JZ36-两个链表中的第一个公共结点.py)
@@ -17,4 +17,4 @@
 
 [JZ67-剪绳子（动态规划！！！！）](./JZ67-剪绳子.py)
 
-[JZ67参考]（https://mp.weixin.qq.com/s__biz=MzI3NzIwMjk4OA==&mid=2247484941&idx=1&sn=d268686f5408a8e431bd2e4a79dd7fc8&chksm=eb68974edc1f1e5823b9bd5485e32a91bcaaa6e3fb146bd8526d91bf6144f2da332ee2cd8b42&mpshare=1&scene=23&srcid=0416eoy626RzI6JNM9QQevId&sharer_sharetime=1618561576753&sharer_shareid=a5423d6d3794defc58f0d989fcdd8682#rd）
+

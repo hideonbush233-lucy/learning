@@ -26,3 +26,47 @@ class Solution:
             return 0
         res = int(at_oi_re.findall(s)[0])
         return min(max(res, -2 ** 31), 2 ** 31 - 1)
+
+# 逐个判断，需要每一种情况都考虑好，比较费事  
+class Solution:
+  def myAtoi(self, s: str) -> int:
+    if len(s) == 0:
+        return 0
+
+    nums = ['0','1','2','3','4','5','6','7','8','9']
+    signs = ['+','-']
+    res = ''
+    flag = 1
+    sflag = 0
+    nflag = 0
+    for char in s:
+        if char == ' ':
+            if nflag == 1 or sflag == 1:
+                break
+            if nflag == 0:
+                continue
+        if char in signs:
+            if nflag == 1:
+                break
+            if sflag == 1:
+                return 0
+
+            if char == '+':
+                sflag = 1
+                flag = 1
+                continue
+            else:
+                sflag = 1
+                flag = -1
+                continue
+        elif char in nums:
+            res += char
+            nflag = 1
+        else:
+            break
+
+    if nflag == 0:
+        return  0
+    if res == '':
+        return 0
+    return min(max(flag*int(res),-2**31),2**31-1)

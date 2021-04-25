@@ -23,3 +23,20 @@ class Solution:
             cur = cur.next
         cur.next = cur.next.next
         return dummy.next
+
+    
+    
+# 快慢指针，一遍即可实现，就是两个指针始终保持相同距离向后移动，
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        dummy = ListNode(0, head)
+        first = head
+        second = dummy
+        for i in range(n):
+            first = first.next
+        while first:
+            first = first.next
+            second = second.next
+        
+        second.next = second.next.next
+        return dummy.next

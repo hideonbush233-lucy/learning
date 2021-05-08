@@ -2,11 +2,11 @@
 
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        intervals.sort(key=lambda x: x[0])
+        intervals.sort(key=lambda x: x[0])  # 必须先按照左区间排序
         new_arr = []
         for item in intervals:
             if not new_arr or new_arr[-1][1] < item[0]:
                 new_arr.append(item)
             else:
-                new_arr[-1][1] = max(new_arr[-1][1],item[1])
+                new_arr[-1][1] = max(new_arr[-1][1],item[1])  # 合并区间
         return new_arr

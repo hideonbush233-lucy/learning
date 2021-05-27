@@ -3,7 +3,7 @@
 
 # 进阶：你可以设计并实现时间复杂度为 O(n) 的解决方案吗？
 
-
+# sort()排序后遍历，时间复杂度不行
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         nums.sort()
